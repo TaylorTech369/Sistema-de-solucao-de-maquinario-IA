@@ -7,15 +7,22 @@ function App() {
 
   const [equipamento, setEquipamento] = useState('esteira_transportadora');
   const [sintoma, setSintoma] = useState('');
+  const [resposta, setResposta] = useState('')
 
   async function enviar_erro() {
 
     try {
-      const adicionar = await axios.post("http://localhost:3000/perguntar", { sintoma: sintoma, equipamento: equipamento });
-    
-    
+      const response = await axios.post("http://localhost:3000/perguntar", {
+        sintoma: sintoma,
+        equipamento: equipamento
+      });
+
+      setResposta(response.data.text)
+
+
     } catch (error) {
-      console.error("Erro:", error)
+      console.error("Erro:", error);
+      setResposta("Houve um erro ao enviar os dados.");
     }
 
 
@@ -25,8 +32,8 @@ function App() {
 
     <>
       <h1>Front-end</h1>
-      <p>Equipamento: {equipamento}</p>
-      <p>Sintoma: {sintoma}</p>
+      <p><strong>Equipamento:</strong> {equipamento}</p>
+      <p><strong>Sintoma:</strong> {sintoma}</p>
 
 
       {/* <input
@@ -73,13 +80,17 @@ function App() {
 
       <button id='botao_de_envio' onClick={enviar_erro}>Enviar erro</button>
 
-
-        {/* <p>Resposta: <hr /> {response.data.text}</p> */}
+      {resposta && (
+        <div id='respostaDiv'>
+          <hr />
+          <p>{resposta}</p>
+        </div>
+      )}
 
 
     </>
 
-  )
+  );
 }
 
 export default App

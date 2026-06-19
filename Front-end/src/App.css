@@ -1,4 +1,133 @@
-
+/* Configuração Geral e Fundo Industrial */
 body {
-  background-color: var(--cor-fundo);
+  margin: 0;
+  padding: 0;
+  background-color: #1e222b; /* Cinza escuro industrial */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e6ed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Container Principal (Simula a tela do Tablet/IHM) */
+#root {
+  width: 100%;
+  max-width: 600px;
+  background-color: #282c34; /* Painel ligeiramente mais claro */
+  border: 4px solid #3e4451; /* Moldura simulando o hardware */
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+/* Cabeçalho do Painel */
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 1.8rem;
+  color: #4ba3ff; /* Azul de sistema/operação */
+  margin-top: 0;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #3e4451;
+  padding-bottom: 15px;
+}
+
+/* Logs rápidos de Estado Atual */
+p {
+  background-color: #1e222b;
+  padding: 10px 15px;
+  border-left: 4px solid #4ba3ff;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin: 8px 0;
+  color: #a0aec0;
+}
+
+p strong {
+  color: #fff;
+}
+
+/* Rótulos das Seleções */
+label {
+  display: block;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  color: #e0e6ed;
+}
+
+/* Inputs e Selects (Estilo robusto para Chão de Fábrica) */
+select, .campos_de_erro {
+  width: 100%;
+  height: 55px; /* Alto o suficiente para cliques táteis */
+  background-color: #1e222b;
+  border: 2px solid #4a5568;
+  border-radius: 6px;
+  color: #fff;
+  padding: 0 15px;
+  font-size: 1.1rem;
+  box-sizing: border-box;
+  margin-bottom: 20px;
+  transition: border-color 0.2s;
+}
+
+select:focus, .campos_de_erro:focus {
+  outline: none;
+  border-color: #4ba3ff;
+}
+
+/* Botão de Envio (Destaque Operacional) */
+#botao_de_envio {
+  width: 100%;
+  height: 60px;
+  background-color: #2b6cb0; /* Azul industrial forte */
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#botao_de_envio:hover {
+  background-color: #3182ce;
+}
+
+#botao_de_envio:active {
+  transform: scale(0.98);
+}
+
+/* Div de Resposta do Gemini (Simula terminal de diagnóstico) */
+#respostaDiv {
+  margin-top: 30px;
+  background-color: #1a1d24;
+  border: 1px dashed #4ba3ff;
+  border-radius: 6px;
+  padding: 20px;
+}
+
+#respostaDiv hr {
+  border: 0;
+  border-top: 1px solid #3e4451;
+  margin-bottom: 15px;
+}
+
+#respostaDiv p {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  color: #38bdf8; /* Tom esverdeado/azul claro para a IA */
+  font-family: 'Courier New', Courier, monospace; /* Fonte estilo relatório */
+  font-size: 1.05rem;
+  line-height: 1.6;
+  white-space: pre-line; /* Mantém as quebras de linha da IA */
 }

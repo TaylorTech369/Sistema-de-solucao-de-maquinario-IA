@@ -7,7 +7,8 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
+
 
 const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 
@@ -65,7 +66,7 @@ app.post('/perguntar', async (req, res) => {
 
         return res.json({
             sucesso: true,
-            resposta: response.text
+            text: response.text
         });
 
     } catch (error) {
